@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Swap - Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url(https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTExL3Jhd3BpeGVsX29mZmljZV8zMF9hYnN0cmFjdF9ncmFkaWVudF93aGl0ZV9iYWNrZ3JvdW5kX3ZlY3Rvcl9wcl9kZGY3ZTJiNC0wMjU3LTRjMTUtOWFjNS0xMmQwZTA0N2E4MWYuanBn.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .header {
+            height: 60px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            scrollbar-width: none;
+            background: transparent;
+        }
+
+        .profile-pic {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-pic img:hover {
+            border: 5px solid #14af2b;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .info-edu,
+        .info-exp,
+        .info-skill,
+        .profile-detail {
+            margin: 10px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 0, 0, 0.1);
+            background-color: transparent;
+            max-height: fit-content;
+        }
+
+        .info-edu h2,
+        .info-exp h2,
+        .info-skill h2,
+        .profile-detail h2 {
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            .profile-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .profile-detail {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .info-edu,
+            .info-exp,
+            .info-skill {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        .info-edu input,
+        .info-exp input,
+        .info-skill input {
+            margin: 5px 10px;
+            padding: 5px 10px;
+            width: 80px;
+            border: none;
+             background-color: #0e7a1b;
+            border-radius: 5px;
+            color: rgb(0, 255, 64);
+            cursor: pointer;
+            position: relative;
+            left: 92%;
+            bottom: -10px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .info-edu input,
+            .info-exp input,
+            .info-skill input {
+                width: 60px;
+                position: static;
+                background-color: #0e7a1b;
+            }
+
+        }
+
+        .info-edu input:hover,
+        .info-exp input:hover,
+        .info-skill input:hover {
+            background-color: #dfd4d4d8;
+        }
+
+        .info-edu:hover,
+        .info-exp:hover,
+        .info-skill:hover,
+        .profile-detail:hover {
+            box-shadow: 10px 10px 10px 10px rgba(100, 0, 0, 0.1);
+            background-color: antiquewhite;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .info-edu input:hover,
+            .info-exp input:hover,
+            .info-skill input:hover {
+                background-color: #0e7a1b;
+            }
+
+            .info-edu:hover,
+            .info-exp:hover,
+            .info-skill:hover,
+            .profile-detail:hover {
+                box-shadow: 10px 10px 10px 10px rgba(100, 0, 0, 0.1);
+                background-color: antiquewhite;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" id="header"></div>
+
+    <main>
+        <div class="profile-container">
+            <div class="profile-detail">
+                <div class="profile-pic">
+                    <img src="profile.jpg" alt="profile picture"
+                        style="width: 150px; height: 150px; border-radius: 50%;" id="profilePic">
+                </div>
+                <div class="profile-info">
+                    <h1>John Doe</h1>
+                    <p>Web Developer</p>
+                </div>
+                <div class="profile-info">
+                    <h2>Contact Information:</h2>
+                    <p>Email:
+                        <span id="email">
+                            john.doe@example.com
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-edu">
+                <h2>Educational:</h2>
+                <div class="info-edu1">
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>University of Example, 2015-2019</p>
+                </div>
+                <input type="button" value="Edit">
+            </div>
+            <div class="info-exp">
+                <h2>Experience:</h2>
+                <div class="info-exp1">
+                    <p>Web Developer at Example Company</p>
+                    <p>June 2019 - Present</p>
+                </div>
+                <input type="button" value="Edit">
+            </div>
+            <div class="info-skill">
+                <h2>Skills:</h2>
+                <div class="info-skill1">
+                    <p>HTML, CSS, JavaScript, React, Node.js</p>
+                </div>
+                <input type="button" value="Edit">
+            </div>
+            <div class="info-skill">
+                <h2>Languages:</h2>
+                <div class="info-skill1">
+                    <p>English (Fluent), Spanish (Intermediate)</p>
+                </div>
+                <input type="button" value="Edit">
+            </div>
+        </div>
+    </main>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

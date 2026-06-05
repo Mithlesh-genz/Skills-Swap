@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="icon" href="profile.jpg">
+    <title>Skills Swap - Explore Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .header {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        main {
+            background-color: transparent;
+            padding: 10px 0px;
+            border-radius: 5px;
+            width: 100%;
+            height: 91vh;
+            position: relative;
+            top: 80px;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+
+        .searchBar {
+            display: flex;
+            align-content: center;
+            margin-top: 20px;
+            margin: 10px auto 20px auto;
+            height: 40px;
+            width: 80%;
+        }
+
+        #find {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .searchBar #find,
+        .searchBar #offer,
+        .searchBar #language {
+            width: 50%;
+            padding: 10px;
+            border: 2px solid #000000;
+            outline: none;
+            background: transparent;
+        }
+
+        .searchBar .cta-button {
+            width: 20%;
+            padding: 11px;
+            border: 2px solid #000000;
+            outline: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:500px) {
+
+            .searchBar {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                height: auto;
+                width: 100%;
+            }
+
+            .searchBar #find,
+            .searchBar #offer,
+            .searchBar #language,
+            .searchBar .cta-button {
+                height: auto;
+                width: 95%;
+                padding: 10px;
+                margin: 5px auto;
+                border: 2px solid #000000;
+                border-radius: 20px;
+                background: transparent;
+            }
+
+            .searchBar .cta-button {
+                background-color: #28a745;
+            }
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .list .delails-box {
+            background-color: #ffffff6a;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 22px;
+            width: 100%;
+            height: 150px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .list .delails-box .db-1,
+        .list .delails-box .db-2 {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 10px;
+            justify-content: flex-start;
+            align-content: stretch;
+        }
+
+        .db-1 :nth-child(1),
+        .db-2 :nth-child(1) {
+            color: #007BFF;
+        }
+
+        .db-3 {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin: 0px 0px 20px 0px;
+            justify-content: flex-end;
+        }
+
+        .list .delails-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 5px;
+            float: left;
+        }
+
+        .list .delails-box label {
+            font-size: 1.5em;
+            font-weight: bold;
+            display: flex;
+            margin: 0px;
+        }
+
+        .list .delails-box span {
+            display: block;
+            margin-bottom: 0px;
+            color: #555;
+        }
+
+        .list .delails-box button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            float: right;
+            align-self: flex-end;
+        }
+
+        .list .delails-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .list .delails-box a {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width:716px) {
+            .list .delails-box {
+                width: 100%;
+            }
+
+            .list .delails-box {
+                height: 100px;
+                padding: 10px 0 10px 10px;
+
+
+            }
+
+            .list .delails-box img {
+                width: 80px;
+                height: 80px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .list .delails-box label {
+                font-size: 1em;
+            }
+
+            .list .delails-box span {
+                font-size: 0.8em;
+            }
+
+            .db-3 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                position: relative;
+                bottom: 50px;
+                left: 0px;
+                gap: 5px;
+            }
+
+            .list .delails-box button {
+                padding: 0;
+                font-size: 0.9em;
+                width: 30px;
+                height: 30px;
+                position: relative;
+                right: 10px;
+            }
+
+            .list .delails-box .db-1,
+            .list .delails-box .db-2 {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                margin-top: 10px;
+                justify-content: flex-start;
+                align-content: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <main>
+        <h1>Explore Page</h1>
+        <p>This is the explore page where users can find and connect with others to swap skills.</p>
+        <div class="searchBar">
+            <select name="find" id="find">
+                <option value="all"> Find Skills</option>
+                <option value="cooking">Cooking</option>
+                <option value="coding">Coding</option>
+            </select>
+            <select name="offer" id="offer">
+                <option value="all"> Offer Skills</option>
+                <option value="cooking">Cooking</option>
+                <option value="coding">Coding</option>
+            </select>
+            <select name="language" id="language">
+                <option value="all"> Select Languages</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="hindi">Hindi</option>
+            </select>
+            <button class="cta-button">Search</button>
+        </div>
+        <div class="list">
+            <section class="delails-box">
+                <img src="profile.jpg" alt="" id="profilePic">
+                <label for="msg">Demo user 1</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Mumbai, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Hindi</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Photography</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong style="color: #dc3545;">Editing</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 2</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Delhi, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Hindi</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Painting</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong style="color: #dc3545;">Art
+                            History</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 3</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Bangalore, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Kannada</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Cooking</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong style="color: #dc3545;">Recipe
+                            Development</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 4</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Chennai, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Tamil</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Yoga</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong
+                            style="color: #dc3545;">Wellness</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 5</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Hyderabad, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Telugu</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Music</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong style="color: #dc3545;">Guitar</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 6</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Kolkata, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Bengali</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Dancing</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong
+                            style="color: #dc3545;">Choreography</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+            <section class="delails-box">
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">Demo user 7</label>
+                <section class="db-1">
+                    <span><i class="fa-solid fa-location-dot"></i> Pune, India</span>
+                    <span><i class="fa-solid fa-language"></i> English, Marathi</span>
+                </section>
+                <section class="db-2">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i> <strong
+                            style="color: #28a745;">Writing</strong></span>
+                    <span><i class="fa-solid fa-arrow-left"></i> <strong style="color: #dc3545;">Creative
+                            Writing</strong></span>
+                </section>
+                <section class="db-3">
+                    <button><a href="connect.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a></button>
+                    <button><a href="msg.html"><i class="fa-solid fa-comment"></i></a></button>
+                </section>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.header').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

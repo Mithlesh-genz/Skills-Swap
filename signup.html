@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap-Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        header {
+            width: 100%;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .form-container {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            width: 25vw;
+            height: 60vh;
+            position: absolute;
+            top: 23%;
+            padding: 20px;
+            border: transparent solid 1px;
+            box-shadow: 2px 7px 10px rgba(100, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-color: #218838;
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form-container {
+                width: 80vw;
+                position: static;
+                margin: 20px auto;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                justify-content: center;
+
+            }
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #e1b8b864;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header"></div>
+    </header>
+    <div class="form-container">
+        <form action="#" method="post">
+            <h1>SignUp</h1>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter E-mail" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <br>
+            <input type="submit" value="Sign Up">
+            <br><br><br>
+            <p id="error-message" style="color: #777;">already registered ? <a href="login.html">Login here</a></p>
+        </form>
+    </div>
+    <br>
+    <footer>
+        <p>&copy; 2026 Skill Swap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

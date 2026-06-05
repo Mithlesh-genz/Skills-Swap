@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Swap - Message</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f1f0f0;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        header {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 20px;
+            padding: 20px 10px;
+            margin: 0px;
+            border-radius: 5px;
+        }
+
+        main h1 {
+            text-align: center;
+            margin: 20px 0;
+            height: 50px;
+            width: 97.5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            position: fixed;
+        }
+
+        .search input[type="search"] {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: transparent;
+            border: 2px solid #777777a8;
+            padding: 10px;
+            border-radius: 5px;
+            width: 18%;
+            height: 50px;
+            position: fixed;
+            margin-top: 80px;
+            left: 10px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: transparent;
+            padding: 0px;
+            margin: 0px;
+            border-radius: 5px;
+            width: 18%;
+            height: 90vh;
+            position: absolute;
+            top: 150px;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        .list section {
+            margin-top: 10px;
+            text-align: left;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .list section label,
+        .left label {
+            font-size: 1.1em;
+            color: #333;
+            cursor: pointer;
+        }
+
+        section img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .chat {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            position: fixed;
+            background-color: transparent;
+            border-radius: 10px;
+            width: 76%;
+            margin-top: 90px;
+            bottom: 10px;
+            left: 22%;
+            justify-content: space-between;
+            height: 80vh;
+            border: 2px solid #222322;
+            margin: 0px;
+
+        }
+
+        @media screen and (max-width:716px) {
+
+            body {
+                margin: 0%;
+                padding: 0;
+                overflow-y: hidden;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                top: 20px;
+                padding: auto;
+                margin: 0px;
+                border-radius: 5px;
+            }
+
+            main h1 {
+                text-align: center;
+                margin: 20px 3px;
+                height: 50px;
+                width: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                position: fixed;
+            }
+
+            .search input[type="search"] {
+                display: flex;
+                flex-direction: column;
+                background-color: transparent;
+                width: 95%;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                background-color: transparent;
+                padding: 0px;
+                margin: 0px;
+                border-radius: 5px;
+                width: 95%;
+                height: 90vh;
+                position: absolute;
+                top: 150px;
+                overflow-y: scroll;
+            }
+
+            .list section {
+                margin-top: 10px;
+                text-align: left;
+                width: 100%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            section img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            .chat {
+                display: none;
+            }
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+
+            background-color: transparent;
+            color: rgb(233, 10, 10);
+            padding: 10px;
+            bottom: 10px;
+            border-radius: 10px;
+            margin: 10px;
+            width: 100%;
+            height: 70vh;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        .message .message-left {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: transparent;
+            width: fit-content;
+            height: fit-content;
+            color: rgb(233, 10, 10);
+            padding: 10px;
+            bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px;
+            align-self: flex-end;
+        }
+
+        .message .message-left p {
+            margin-top: 5px;
+        }
+
+        .message .message-left h6 {
+            font-size: 0.8em;
+            color: #777;
+            font-weight: normal;
+        }
+
+        .message .message-right {
+            display: flex;
+            flex-direction: column;
+            align-items: right;
+            background-color: transparent;
+            width: fit-content;
+            height: fit-content;
+            color: rgb(10, 62, 233);
+            padding: 10px;
+            bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px;
+            align-self: flex-start;
+        }
+
+        .message .message-right p {
+            margin-top: 5px;
+        }
+
+        .message .message-right h6 {
+            font-size: 0.8em;
+            color: #e04b4b;
+            font-weight: normal;
+        }
+
+        .chat .chatBtmP {
+            display: flex;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            justify-content: space-between;
+        }
+
+        .chatBtmP .left,
+        .chatBtmP .right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatBtmP .right :hover {
+            scale: 1.1;
+        }
+
+        .chat .chatBtmP .right i {
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 20px;
+            color: #150448;
+        }
+
+        .chat .chatBtmP img {
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+            border: 1px solid #1a1717;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chatBtmL {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .chat .chatBtmL input {
+            width: 90%;
+            height: 50px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0 0 0 8px;
+        }
+
+        .chat .chatBtmL button {
+            display: flex;
+            align-items: center;
+            width: 10%;
+            height: 50px;
+            padding: 10px 30px;
+            background-color: #28a745;
+            color: white;
+            border: 1px solid #1a1717;
+            border-radius: 0 0 8px 0;
+        }
+
+        .chat .chatBtmL button:hover {
+            background-color: #218838;
+        }
+
+        marquee {
+            color: #212529;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+
+        #arrow-down {
+            position: absolute;
+            bottom: 60px;
+            right: 50%;
+            font-size: 30px;
+            color: #212529;
+            cursor: pointer;
+        }
+
+        .btn {
+            color: #212529;
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header"></div>
+    </header>
+
+    <main>
+        <div>
+            <h1>Message</h1>
+        </div>
+        <div class="search">
+            <input type="search" name="search" id="search" placeholder="Search...">
+        </div>
+        <div class="list">
+            <section>
+                <img src="profile.jpg" alt="" id="profilePic" >
+                <label for="msg">demo user 1</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="" id="profilePic">
+                <label for="msg">demo user 2</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="" id="profilePic">
+                <label for="msg">demo user 3</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="" id="profilePic">
+                <label for="msg">demo user 4</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="" id="profilePic">
+                <label for="msg">demo user 5</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 6</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 7</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 8</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 9</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 10</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 11</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 12</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 13</label>
+            </section>
+            <section>
+                <img src="profile.jpg" alt="user1" id="profilePic">
+                <label for="msg">demo user 14</label>
+            </section>
+        </div>
+
+        <div class="chat">
+            <div class="chatBtmP">
+                <div class="left">
+                    <img src="profile.jpg" alt="user1" id="profilePic">
+                    <label for="msg">Demo user 4</label>
+                </div>
+                <div class="right">
+                    <a href="https://wa.me/7903558438" target="_blank"><i class="fa-solid fa-video fa-2xl"></i></a>
+                    <a href="https://wa.me/7903558438" target="_blank"><i class="fa-solid fa-phone fa-xl"></i></a>
+                    <a href="#"><i class="fa-solid fa-ellipsis fa-2xl fa-rotate-90"></i></a>
+                </div>
+            </div>
+            <div class="message">
+                <marquee behavior="link" direction="left" scrollamount="10">This is a simple <em>demo</em> message.....
+                </marquee>
+
+                <div class="message-left">
+                    <h6>You</h6>
+                    <p>Hello! How are you?</p>
+                </div>
+                <div class="message-right">
+                    <h6>Demo user 4</h6>
+                    <p>Hello! How are you?</p>
+                </div>
+
+
+                <marquee behavior="link" direction="RIGHT" scrollamount="10">This is a simple <em>demo</em> message.....
+                </marquee>
+
+                <div class="message-left">
+                    <h6>You</h6>
+                    <p>Hello! How are you?</p>
+                </div>
+                <div class="message-right">
+                    <h6>Demo user 4</h6>
+                    <p>Hello! How are you?</p>
+                </div>
+            </div>
+
+            <marquee behavior="link" direction="left" scrollamount="10" class="btn">This is a simple <em>demo</em>
+                message.....</marquee>
+            <marquee behavior="link" direction="right" scrollamount="10" class="btn">This is a simple <em>demo</em>
+                message.....</marquee>
+
+            <i class="fa-solid fa-arrow-down" id="arrow-down"></i>
+
+            <div class="chatBtmL">
+                <input type="text" name="msg" id="msg" placeholder="Type your message here...">
+                <button type="submit">Send</button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script>
+        // Load the header content from header.html
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

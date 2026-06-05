@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Swap - Connect Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        h1 {
+            color: #dc3545;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        .chat1 {
+            display: block;
+            flex-direction: column;
+            align-items: left;
+            position: fixed;
+            background-color: white;
+            border-radius: 10px;
+            width: 100%;
+            margin: 80px 0px 0 0px;
+            bottom: 0px;
+            justify-content: space-between;
+            height: 90vh;
+            border: 2px solid #222322;
+        }
+
+        .chat1 .user1,
+        .chat1 .user2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat1 .chatBtmP {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            padding: 5px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            justify-content: space-between;
+        }
+
+        .chatBtmP .left,
+        .chatBtmP .right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatBtmP .right :hover {
+            scale: 1.1;
+        }
+
+        .chat1 .chatBtmP .right i {
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 20px;
+            color: #150448;
+        }
+
+        .chat1 .chatBtmP img {
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+            border: 1px solid #1a1717;
+            border-radius: 50%;
+            margin: 10px 0px 10px 0px;
+        }
+
+        .chatBtmL {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .chat1 .chatBtmL button,
+        .chat1 .chatBtmL1 button {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            right: 15px;
+            top: 32%;
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .chat1 .chatBtmP .left .user1 h5,
+        .chat1 .chatBtmP .left .user2 h5 {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            color: #150448;
+        }
+
+        .chat1 .chatBtmL1 button {
+            top: 25%;
+        }
+
+        .chat1 .chatBtmL button:hover {
+            background-color: #218838;
+        }
+
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        @media screen and (max-width: 716px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .chat1 {
+                width: 100%;
+                height: 90vh;
+                top: 55px;
+                bottom: 0;
+                border-radius: 0;
+                margin: 10px 0 0 0;
+            }
+
+            .chat1 .chatBtmP {
+                display: flex;
+                width: 100%;
+                height: 50px;
+                padding: 8px 10px;
+                background-color: #28a745;
+                color: white;
+                border-radius: 0;
+                cursor: pointer;
+                justify-content: space-between;
+            }
+
+            .chat1 .chatBtmP img {
+                width: 30px;
+                height: 30px;
+                padding: 0px;
+                border: 1px solid #1a1717;
+                border-radius: 50%;
+                margin-right: 5px;
+            }
+
+            .chatBtmL1 button {
+                margin-top: -45px;
+                border-radius: 50%;
+                padding: 8px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .chat1 .chatBtmL button {
+                right: 10px;
+                top: 25%;
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+                background-color: #28a745;
+                color: white;
+                border: 1px solid #1a1717;
+                border-radius: 50%;
+            }
+
+            .chatBtmL button:hover,
+            .chatBtmL1 button:hover {
+                background-color: #218838;
+            }
+
+            .left .user1 img,
+            .left .user2 img {
+                margin: 0px 10px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <main>
+        <div class="container">
+            <h1>Connect with Others</h1>
+            <p>Find and connect with people who share your interests and skills. Collaborate, learn, and grow together!
+            </p>
+            <button><a href="Explore.html">Explore Skills</a></button>
+        </div>
+
+        <div class="chat1">
+            <div class="chatBtmP">
+                <div class="left">
+                    <div class="user1">
+                        <img src="profile.jpg" alt="User 1" id="profilePic">
+                        <h5>User 1</h5>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <div class="user2">
+                        <img src="profile.jpg" alt="User 2" id="profilePic">
+                        <h5>User 2</h5>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="" target="_parent"> <i class="fa-solid fa-crop"></i></a>
+                    <a href="" target="_parent"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    <a href="" target="_parent"><i class="fa-solid fa-eraser fa-xl"></i></a>
+                    <a href="" target="_parent"><i class="fa-solid fa-circle fa-2x"></i></a>
+                </div>
+            </div>
+            <div class="chatBtmL">
+                <button type="submit"><i class="fa-solid fa-broom fa-lg"></i></button>
+            </div>
+            <div class="chatBtmL1">
+                <button type="submit"><i class="fa-solid fa-xmark fa-lg"></i></button>
+            </div>
+        </div>
+    </main>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.header').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

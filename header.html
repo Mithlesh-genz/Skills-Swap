@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            height: 70px;
+            background-color: #e1b8b8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 740px) {
+            nav {
+                height: 60px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+                justify-content: space-between;
+            }
+
+            .logo-i h2 {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .logo-i h2 i {
+                margin-top: auto;
+            }
+
+            .iconSec {
+                width: 30px;
+
+            }
+
+            .iconSec i {
+                display: none;
+
+            }
+
+            .pro-icon {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                right: 5px;
+            }
+
+            .pro-icon i {
+                display: block;
+            }
+
+            .pro-icon a {
+                color: #64aaf6;
+                text-decoration: none;
+                font-weight: bold;
+                margin-left: 0px;
+                text-align: center;
+                height: 30px;
+            }
+        }
+
+        .logo-i {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-i img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 15px;
+        }
+
+        .logo-i h2 {
+            color: #073cfc;
+            font-family: "Lobster", sans-serif;
+            font-weight: 400;
+            font-style: bold;
+        }
+
+        .iconSec {
+            display: flex;
+            align-items: center;
+        }
+
+        .iconSec a {
+            color: #64aaf6;
+            font-size: 24px;
+            text-decoration: none;
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .iconSec a h3 {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #64aaf6;
+            display: none;
+        }
+
+        nav .iconSec a:hover {
+            color: #007BFF;
+        }
+
+        .iconSec a i {
+            transition: color 0.3s ease;
+        }
+
+        .pro-icon {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .pro-icon a:last-child {
+            margin-left: 20px;
+            display: none;
+        }
+
+        @media screen and (max-width: 740px) {
+            .pro-icon a:last-child {
+                display: block;
+            }
+            
+        }
+
+        .pro-icon i {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        .pro-icon a {
+            color: #64aaf6;
+            text-decoration: none;
+            /* font-weight: bold; */
+            margin-left: 20px;
+        }
+
+        .pro-icon a:hover {
+            color: #007BFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- header -->
+
+    <nav class="header">
+        <section class="logo-i" id="logo-i">
+            <img src="https://cdn.vectorstock.com/i/1000v/85/01/golden-ss-monogram-logo-luxury-initial-vector-44808501.jpg"
+                alt="logo">
+            <h2>Skills <i style="color: #1aa43f; font-size: 0.6em; text-decoration: underline;">Swap</i></h2>
+        </section>
+        <section class="iconSec">
+            <a href="index.html" target="_self" rel="noopener noreferrer"><i class="fa-solid fa-home"></i>
+                <h3>Home</h3>
+            </a>
+            <a href="Explore.html" target="_self" rel="noopener noreferrer"><i class="fa-solid fa-binoculars"></i>
+                <h3>Explore</h3>
+            </a>
+            <a href="connect.html" target="_self" rel="noopener noreferrer"><i
+                    class="fa-solid fa-arrow-right-arrow-left"></i>
+                <h3>Connect</h3>
+            </a>
+            <a href="msg.html" target="_self" rel="noopener noreferrer"><i class="fa-solid fa-message"></i>
+                <h3>Message</h3>
+            </a>
+        </section>
+        <section class="pro-icon">
+            <a href="Login.html" target="_self" rel="noopener noreferrer">
+                <i class="fa-solid fa-user-plus">
+                </i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </a>
+        </section>
+    </nav>
+    <script src="script.js"></script>
+</body>
+
+</html>
