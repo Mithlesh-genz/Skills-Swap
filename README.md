@@ -1,0 +1,1 @@
+Knowledge Swap is a 100% free skill and knowledge-sharing platform where users can teach what they know and learn new skills from others. It promotes collaboration, peer-to-peer learning, and personal growth by connecting people with shared interests and enabling knowledge exchange in a supportive community. 🚀
